@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="google sheet.css">
+</head>
+
+<body>
+	<div class="container">
+		<form method="post"
+			action="https://script.google.com/macros/s/AKfycbwwGe1pVpXuiLUo2fKDPkfoTX8o-jtyrKqKvM-bQQvP5EYWcZjT3nC40S0o-fQ7XEA7/exec"
+			name="contact-form" onsubmit="return validateForm()">
+			<h4>Admission form</h4>
+			<input type="text" name="your-name" placeholder="Name" required>
+			<input type="text" name="your-number" placeholder="Mobile Number" pattern="[0-9]{10}"
+				title="Enter a 10-digit mobile number" required>
+			<input type="email" name="your-email" placeholder="Email" required>
+			<input type="number" id="percentage1" name="10th percentile" min="0" max="100" step="0.01"
+				pattern="[0-9]+(\.[0-9]+)?" title="Enter a valid percentage (0-100)" placeholder="12th percentile"
+				required>
+			<input type="number" id="percentage2" name="12th percentile" min="0" max="100" step="0.01"
+				pattern="[0-9]+(\.[0-9]+)?" title="Enter a valid percentage (0-100)" placeholder="10th percentile"
+				required>
+			<input type="text" name="Community" placeholder="Community" pattern="[A-Za-z]+"
+				title="Enter a valid community (letters only)" required>
+			<input type="date" id="dob" name="dob" max="2006-01-01" required>
+			<textarea name="Address" rows="7" placeholder="Address" required></textarea>
+			<input type="hidden" id="age" name="age" value="">
+			<input type="submit" value="Submit" id="submit">
+		</form>
+		<div id="submission-message" style="display: none; color: green; margin-top: 10px;">Submission Completed</div>
+	</div>
+
+	<script src="google sheet.js"></script>
+
+	<script>
+		function calculateAge() {
+			var dob = document.forms['contact-form']['dob'].value;
+			var today = new Date();
+			var birthDate = new Date(dob);
+			var age = today.getFullYear() - birthDate.getFullYear();
+			var monthDiff = today.getMonth() - birthDate.getMonth();
+
+			if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+				age--;
+			}
+
+			document.getElementById('age').value = age;
+		}
+
+		function validateForm() {
+			calculateAge(); // Calculate age before form submission
+
+			var age = document.forms['contact-form']['age'].value;
+
+			// Check if the age is greater than or equal to 17
+			if (age < 17) {
+				alert("Age must be greater than or equal to 17.");
+				return false;
+			}
+
+			// You can add additional custom validations if needed
+
+			// Show the submission message
+			document.getElementById('submission-message').style.display = 'block';
+
+			return true;
+		}
+	</script>
+</body>
+
+</html>

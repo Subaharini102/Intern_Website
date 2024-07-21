@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Chatbot</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            color: #090606;
+        }
+
+        #content-section {
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        #chat-container {
+            width: 1000px;
+            border: 1px solid #f9ebc7;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #chat-messages {
+            height: 200px;
+            padding: 10px;
+            overflow-y: scroll;
+            background-color: #f9ebc7;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            max-width: 70%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .user-message {
+            align-self: flex-start;
+            background-color: #3498db;
+            color: white;
+        }
+
+        .bot-message {
+            align-self: flex-end;
+            background-color: #21454b;
+            color: white;
+        }
+
+        #chat-header {
+            background-color: #3498db;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #chat-messages {
+            height: 200px;
+            padding: 10px;
+            overflow-y: scroll;
+            background-color: #f9ebc7;
+            margin-bottom: 20px;
+        }
+
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ccc;
+            outline: none;
+        }
+
+        #predefined-questions {
+            display: none;
+            /* Hide the predefined questions */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content-section" class="container">
+        <h1>Welcome to Our College Chatbot</h1>
+        <p>Feel free to ask any questions about our college programs, admissions, facilities, and more!</p>
+    </div>
+    <div id="chat-container" class="container">
+        <div id="chat-header" class="bg-primary text-white">College Chat</div>
+        <div id="chat-messages"></div>
+        <input type="text" id="user-input" placeholder="Type your question..." class="form-control">
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+
+        const predefinedQuestions = [
+            "What programs does the college offer?",
+            "How can I apply for admission?",
+            "What are the tuition fees?",
+            "Tell me about campus facilities.",
+            "How can I contact the admissions office?",
+            "Is there on-campus housing available?",
+            "What is the college's ranking?",
+            "Tell me about the faculty members.",
+            "Are there any scholarships available?",
+            "What is the student-to-faculty ratio?",
+            "Can I schedule a campus tour?",
+            "Tell me about extracurricular activities.",
+            "How diverse is the student body?",
+            "What is the college's mission statement?",
+            "What research opportunities are available?",
+            "How is the college handling COVID-19?",
+            "Tell me about internship opportunities.",
+            "What sports teams does the college have?",
+            "What is the college's acceptance rate?",
+            "Are there any study abroad programs?",
+            "Tell me about the library resources.",
+            "How can I reset my student password?",
+            "What is the college's history?",
+            "Tell me about alumni success stories.",
+            "What is the average class size?",
+            "Can I transfer credits from another college?",
+            "Tell me about the college's sustainability efforts.",
+            "What technology resources are available to students?",
+            "How can I join student clubs and organizations?",
+            "Tell me about the college's accreditation.",
+            "What is the college's policy on academic integrity?",
+            "Can I bring a car to campus?",
+            "Tell me about the college's health services.",
+            "How can I get involved in community service?",
+            "What dining options are available on campus?",
+            "Tell me about the college's partnership with industry.",
+            "What is the college's policy on diversity and inclusion?",
+            "How can I get involved in undergraduate research?",
+            "Tell me about the college's career services.",
+            "What is the college's policy on online courses?",
+            "How is the college involved in the local community?",
+            "Tell me about the college's art and culture events.",
+            "What mental health resources are available for students?",
+            "How can I apply for a teaching assistant position?",
+            "Tell me about the college's commitment to sustainability.",
+            "What is the college's policy on student government?",
+        ];
+
+        const predefinedAnswers = [
+            "The college offers programs in Computer Science, Engineering, Business, and more.",
+            "To apply for admission, visit our official website and follow the application process.",
+            "Tuition fees vary by program. You can find detailed information on our website or contact the admissions office.",
+            "Our campus facilities include state-of-the-art classrooms, a library, sports facilities, and more.",
+            "You can contact the admissions office via email at admissions@college.edu or call (123) 456-7890.",
+            "Yes, the college offers on-campus housing. You can find more details on our website.",
+            "The college is ranked among the top 50 universities globally. Check our website for the latest rankings.",
+            "Our faculty members are highly qualified and experienced. You can find more information on the faculty page of our website.",
+            "Yes, there are various scholarships available. Visit the financial aid section on our website for details.",
+            "The student-to-faculty ratio is 15:1, ensuring personalized attention for students.",
+            "Yes, you can schedule a campus tour. Visit our website to book a tour at your convenience.",
+            "We offer a wide range of extracurricular activities, including clubs, sports, and cultural events.",
+            "The student body is diverse, representing various backgrounds and cultures.",
+            "Our mission is to provide high-quality education, foster research, and promote community engagement.",
+            "The college offers research opportunities in various fields. Check with your department for specific opportunities.",
+            "The college has implemented safety measures to protect students from COVID-19. Refer to our website for the latest updates.",
+            "Internship opportunities are available through our career services department. Explore options based on your major.",
+            "We have a variety of sports teams, including basketball, soccer, and volleyball.",
+            "The acceptance rate varies by program. Check our admissions page for specific details.",
+            "Study abroad programs are available in partnership with international universities.",
+            "The library offers a vast collection of resources, including books, journals, and online databases.",
+            "To reset your student password, contact the IT help desk at helpdesk@college.edu or call (123) 456-7890.",
+            "The college has a rich history dating back to its founding in 1850.",
+            "Our alumni have achieved success in various fields, from business and technology to arts and sciences.",
+            "Average class sizes range from 20 to 30 students, fostering a collaborative learning environment.",
+            "Yes, you can transfer credits from another accredited college. Check our transfer credit policy for details.",
+            "The college is committed to sustainability through initiatives such as recycling and energy conservation.",
+            "Technology resources include computer labs, online portals, and access to software tools.",
+            "Joining student clubs and organizations is easy. Attend club fairs or visit our student affairs office for information.",
+            "The college is accredited by the Higher Learning Commission. Check our accreditation page for details.",
+            "The college upholds a strong policy on academic integrity, promoting honesty and ethical behavior.",
+            "Yes, students can bring cars to campus. Parking permits can be obtained through the transportation office.",
+            "Health services are available on campus, providing medical care and wellness programs.",
+            "Community service opportunities are available through various student-led initiatives.",
+            "Dining options include cafeteria services, food courts, and specialty eateries.",
+            "The college collaborates with industry partners for internships, research projects, and job placements.",
+            "Diversity and inclusion are central to our values, and we promote a welcoming and inclusive campus environment.",
+            "Undergraduate research opportunities are available. Connect with faculty members for potential projects.",
+            "Career services provide support for resume building, job searches, and career counseling.",
+            "Online courses are offered, providing flexibility for students. Check our course catalog for available options.",
+            "The college actively engages with the local community through service projects and outreach programs.",
+            "Art and culture events include performances, exhibitions, and guest lectures. Check the events calendar for details.",
+            "Mental health resources include counseling services and support groups for students.",
+            "Teaching assistant positions are available through departmental appointments. Inquire within your department.",
+            "The college is committed to sustainability through green building initiatives and renewable energy projects.",
+            "Student government plays a vital role in campus governance. Elections are held annually for various positions.",
+        ];
+
+        function sendMessage() {
+            const userMessage = userInput.value;
+            appendMessage('You', userMessage, 'user-message');
+            userInput.value = '';
+
+            // Simulate bot response 
+            setTimeout(() => {
+                const botMessage = getBotResponse(userMessage);
+                appendMessage('Bot', botMessage, 'bot-message');
+            }, 500);
+        }
+
+        function appendMessage(sender, message, messageType) {
+            const messageDiv = document.createElement('div');
+            messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            messageDiv.classList.add('message', messageType);
+            chatMessages.append(messageDiv); // Use append instead of insertBefore
+        }
+
+        function getBotResponse(userMessage) {
+            // Checking if user's message matches predefined questions
+            for (let i = 0; i < predefinedQuestions.length; i++) {
+                const question = predefinedQuestions[i].toLowerCase();
+                if (userMessage.toLowerCase().includes(question)) {
+                    return predefinedAnswers[i];
+                }
+            }
+
+            // If no match, provide a default response
+            return 'I didn\'t understand that. Can you please rephrase or ask another question?';
+        }
+
+        userInput.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+
+</html>

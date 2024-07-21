@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Water Problems Reporting</title>
+</head>
+
+<body>
+    <header>
+        <h1>Water Problems Reporting</h1>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="content">
+                <h2>Report Water Problems</h2>
+                <p>Help us create a better community by reporting water-related issues.</p>
+                <a href="#report-form" class="cta-button">Report Now</a>
+            </div>
+        </section>
+
+        <section id="report-form" class="report-form">
+            <h2>Report a Water Problem</h2>
+            <form>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="issue">Issue:</label>
+                <textarea id="issue" name="issue" required></textarea>
+
+                <button type="button" onclick="submitReport()">Submit Report</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Water Problems Reporting</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

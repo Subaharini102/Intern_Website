@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>College Website</title>
+    <style>
+        /* Add your existing styles here */
+        header {
+            background-color: bisque;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+    
+        .logo {
+            width: 80px;
+            /* Adjust the width as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+    
+        .college-info {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            margin: left 30px;
+        }
+    
+        .college-logo {
+            margin-right: 10px;
+            /* Adjust the gap between the logo and the name */
+        }
+    
+        nav li {
+            margin: 0 10px;
+        }
+    
+        .navbar a {
+            text-decoration: none;
+            color: inherit;
+        }
+    
+        footer {
+            background-color: bisque;
+            padding-inline-end: 20px;
+            text-align: right;
+            height: 130px;
+            font-size: x-large;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            /* Align icons to the right */
+            width: 100%;
+            /* Set footer to 100% width */
+            position: relative;
+            padding-bottom: 3px;
+            margin-top: 10px;
+            /* Adjust margin-top as needed */
+        }
+    
+        footer a {
+            text-decoration: none;
+            color: inherit;
+            /* Inherit the color from the parent (footer) */
+            display: block;
+            /* Display each icon on a new line */
+            margin-bottom: 10px;
+            /* Add some spacing between icons */
+        }
+    
+        /* Add some spacing between the icons and text */
+        .footer-icon {
+            margin-right: 20px;
+            transition: transform 0.3s;
+        }
+    
+        .footer-icon:hover {
+            transform: scale(1.2);
+            /* Zoom out the icon on hover */
+        }
+    
+        /* Add styling for the sidebar */
+        .sidebar {
+            height: 50vh;
+            /* 100% of the viewport height */
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: -200px;
+            /* Initially hide the sidebar off-screen */
+            background-color: beige;
+            /* Adjust the color as needed */
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            transition: 0.5s;
+            /* Add a smooth transition effect */
+        }
+    
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            font-size: large;
+            text-align: center;
+            border: 3px solid black;
+            /* Add black border to the boxes */
+            margin-bottom: 1px;
+            /* Add margin to separate the boxes */
+            width: 80%;
+            /* Set the width to 100% for equal-sized boxes */
+        }
+    
+        .sidebar a:hover {
+            background-color: lightcoral;
+            /* Change the desired color on hover */
+            color: black;
+            transform: scale(1.2);
+        }
+    
+        .content {
+            margin-left: 0;
+            /* Initially set to 0 to hide the content behind the sidebar */
+            padding: 20px;
+            transition: margin-left 0.5s;
+            /* Add a smooth transition effect for content */
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+            background-color: beige;
+        }
+    
+        /* Adjust the dimensions of the dashboard icon */
+        .navbar-toggler i {
+            font-size: 50px;
+            /* Change the font-size as needed */
+        }
+    
+        .container {
+            position: relative;
+            width: 100%;
+            /* Set container to 100% width */
+            overflow: hidden;
+            /* Hide content overflowing from container */
+        }
+    
+        .full-width-banner {
+            width: 100%;
+            /* Set image to 100% width */
+            text-align: center;
+        }
+    
+        @media only screen and (max-width: 768px) {
+            .college-info {
+                margin-left: 0;
+                /* Reset margin for smaller screens */
+            }
+    
+            .sidebar {
+                width: 100%;
+                /* Set the width to 100% for smaller screens */
+                left: 0;
+            }
+    
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+    
+        .navbar:hover {
+            background-color: #ffd700;
+            /* Change to your desired color */
+        }
+    
+        .full-width-banner img:hover {
+            transform: scale(1.1);
+            transition: transform 0.5s ease;
+        }
+    
+        .sidebar {
+            transition: left 0.5s ease;
+        }
+    
+        .sidebar:hover {
+            left: 0;
+        }
+    
+        .footer-icon:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    
+        .content {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+    
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    
+        .button {
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+    
+        .button:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #4CAF50;
+            /* Change to your desired color */
+            color: #fff;
+            /* Adjust text color for better visibility */
+        }
+    
+        .box-widget-container1,
+    .box-widget-container2 {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 20px; /* Add margin between the box containers */
+    }
+
+    .box-widget1,
+    .box-widget2 {
+        /* Your existing styles ... */
+        transition: transform 0.3s ease;
+        /* Add transition for smooth animation */
+        width: 350px;
+        /* Adjust the width as needed */
+        height: 300px;
+        /* Adjust the height as needed */
+        background-color: rgb(252, 244, 175);
+        /* Set the desired background color */
+        border: 1px solid #ccc;
+        /* Add border for styling */
+        border-radius: 15px;
+        /* Add border-radius for curved corners */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(152, 96, 96);
+        text-align:center;
+        margin: 10px; /* Add margin between the boxes */
+    }
+
+    /* Hover effect for the last two boxes */
+    .box-widget1:hover,
+    .box-widget2:hover {
+        transform: scale(1.1);
+        /* Scale up the box on hover */
+    }
+    .college-info {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin-left: 30px; /* Adjust margin as needed */
+}
+
+.college-name-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; /* Adjust margin as needed */
+}
+
+.question-mark-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px; /* Set the width of the circle */
+    height: 30px; /* Set the height of the circle */
+    border-radius: 50%;
+    background-color: white; /* Set the background color of the circle */
+    margin-left: 10px; /* Adjust margin as needed */
+    text-decoration: none; /* Remove underline */
+}
+
+.question-mark-circle:hover {
+    background-color: orange; /* Change the color on hover */
+}
+
+.question-mark-circle i {
+    color: #000; /* Set the default color of the question mark */
+    font-weight: bold; /* Set the default font weight */
+    margin-right: 3px; /* Add space between text and question mark */
+    text-decoration: none; /* Remove underline */
+}
+
+.question-mark-circle:hover i {
+    color: orange; /* Change the color on hover */
+    font-weight: bold; /* Make the question mark bold on hover */
+}
+
+
+    
+
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <div class="college-info">
+            <!-- College Logo -->
+            <img src="pics/logo-removebg-preview (1).png" alt="College Logo" class="logo college-logo">
+            <!-- College Name -->
+            <h1 class="college-name">National Engineering College</h1>
+            <!-- Question Mark Logo enclosed within a circle -->
+            <a href="chatbot.html" class="question-mark-logo">
+                <div class="question-mark-circle">
+                    <i class="fas fa-question"></i>
+                </div>
+            </a>
+        </div>
+
+    </header>
+    <div class="container">
+        <div class="full-width-banner">
+            <img src="pics/abc.jpg" alt="Centered Image" width="100%" height="850"
+                class="d-inline-block align-text-top">
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <a href="home.html" onclick="toggleSidebar()">Home</a>
+            <a href="abtus.html" onclick="toggleSidebar()">About Us</a>
+            <a href="img.html" onclick="toggleSidebar()">Gallery</a>
+            <a href="A/a.html" onclick="toggleSidebar()">Academics</a>
+            <a href="admission.html" onclick="toggleSidebar()">Admission</a>
+            <a href="payment.html" onclick="toggleSidebar()">Fee Portal</a>
+            <a href="#footer" onclick="toggleSidebar()">Contact</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content" id="content">
+            <p>
+            <h1>HOME</h1>
+            <!-- Box Widgets Container -->
+            <div class="box-widget-container2">
+                <!-- Box Widget 1 -->
+                <div class="box-widget2">
+                    <h2>Experience the intersection of academic excellence and a welcoming community at National Engineering college,
+                        dedicated to preparing students for success in a rapidly changing world.
+                    </h2>
+                </div>
+            
+                <!-- Box Widget 2 -->
+                <div class="box-widget2">
+                    <h2> Our campus facilities offer an ideal environment for academic exploration and personal growth,
+                        featuring cutting-edge labs and collaborative study spaces that empower students in research and
+                        creativity.
+            
+                    </h2>
+                </div>
+            
+                <!-- Box Widget 3 -->
+                <div class="box-widget2">
+                    <h2>Our accomplished faculty at National engineering college, comprised of professionals and scholars, is
+                        committed to nurturing the next generation of leaders.
+                    </h2>
+                </div>
+            
+            
+            
+            
+            </div>
+            <div class="box-widget-container1">
+                <!-- Box Widget 3 -->
+                <div class="box-widget1">
+                    <h2>National Engineering college takes pride in a strong track record of producing successful graduates who
+                        contribute significantly to society, showcasing the quality of education provided.
+            
+                    </h2>
+                </div>
+            
+                <div class="box-widget1">
+                    <h2>Explore opportunities for achievement, innovation, and excellence at National engineering college, where rigorous academic
+                        programs challenge
+                        and inspire students to reach their full
+                        potential, creating a community that values success.</h2>
+           
+            </p><!-- Your content goes here -->
+        </div>
+    </div>
+
+    <footer id="footer">
+        <!-- Email Icon -->
+        <a href="mailto:padmavathir@student.tce.edu" class="footer-icon">padmavathir@student.tce.edu <i
+                class="fas fa-envelope"></i>
+        </a>
+
+        <!-- Contact Icon -->
+        <a href="tel:+91 9940527561" class="footer-icon">+91 9940527561 <i class="fas fa-phone"></i></a>
+
+        <!-- Location Icon -->
+        <a href="map1.html" class="footer-icon">Thiruparankundram, Madurai <i class="fas fa-map-marker-alt"></i></a>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var content = document.getElementById("content");
+
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-200px";
+                content.style.marginLeft = "0";
+            } else {
+                sidebar.style.left = "0px";
+                content.style.marginLeft = "200px";
+            }
+        }
+
+        function logout() {
+            // Simulate logout logic
+            var confirmLogout = confirm("Are you sure you want to logout?");
+            if (confirmLogout) {
+                alert("Simulated logout successful!");
+                // You can redirect the user to the login page or another page after logout
+                window.location.href = "login.html";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
