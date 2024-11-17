@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .image {
+            margin-top: 20px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(116, 162, 178);
+            transition: transform 0.3s ease-in-out;
+            width: 45%;
+            /* Adjust the width as needed for equal dimensions */
+            justify-content: space-between;
+        }
+
+        .image:hover {
+            transform: scale(1.1);
+        }
+
+        .image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+
+            /* Adjustments for medium and smaller devices */
+            .image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Gallery</h1>
+    </header>
+
+    <section class="gallery">
+        <div class="row">
+            <div class="image">
+                <img src="pics/green.jpg" alt="Photo 1">
+            </div>
+            <div class="image">
+                <img src="pics/abc.jpg" alt="Photo 2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="image">
+                <img src="pics/can.jpg" alt="Photo 3">
+            </div>
+            <div class="image">
+                <img src="pics/hos1.jpg" alt="Photo 4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="image">
+                <img src="pics/cls.jpg" alt="Photo 5">
+            </div>
+            <div class="image">
+                <img src="pics/lb.jpg" alt="Photo 6">
+            </div>
+        </div>
+        <!-- Add more rows and images as needed -->
+    </section>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

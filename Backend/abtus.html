@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: large;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #fbd3e9, #bbded6);
+            margin: 0;
+            padding: 0;
+        }
+
+        .testimonial-section {
+            background: url('pics/abc.jpg') center/cover;
+            position: relative;
+            padding: 50px 0;
+            color: #fff;
+        }
+
+        .testimonial-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .carousel-item {
+            background: linear-gradient(135deg, #fbd3e9, #bbded6);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+        }
+
+        .about-section {
+            background: #ffb6c1;
+            padding: 80px 0;
+        }
+
+        .about-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .footer {
+            background-color: #1c1c1c;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .footer i {
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer a:hover i {
+            color: gold;
+        }
+
+        @media (max-width: 576px) {
+            .testimonial-img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .carousel-item {
+                padding: 10px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Testimonial Section -->
+    <div class="container-fluid testimonial-section">
+        <div class="testimonial-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel"
+                        data-bs-interval="3000">
+                        <div class="carousel-inner">
+
+                            <!-- Testimonial 1 -->
+                            <div class="carousel-item active">
+                                <div class="card text-center">
+                                    <img src="pics/male.jpeg" alt="User" class="card-img-top testimonial-img">
+                                    <div class="card-body">
+                                        <p class="card-text">"Exceptional faculty and engaging coursework at this
+                                            College foster a vibrant learning environment."</p>
+                                        <h5 class="card-title">John Doe</h5>
+                                        <p class="card-subtitle">USA</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 2 -->
+                            <div class="carousel-item">
+                                <div class="card text-center">
+                                    <img src="pics/male1.jpg" alt="User" class="card-img-top testimonial-img">
+                                    <div class="card-body">
+                                        <p class="card-text">"Impressive campus facilities and supportive community make
+                                            this College an ideal place for personal and academic growth."</p>
+
+                                        <h5 class="card-title">David</h5>
+                                        <Chennai class="card-subtitle">Chennai</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 3 -->
+                            <div class="carousel-item">
+                                <div class="card text-center">
+                                    <img src="pics/fem1.png" alt="User" class="card-img-top testimonial-img">
+                                    <div class="card-body">
+                                        <p class="card-text">"Innovative programs and dedicated staff at XYZ College
+                                            ensure a well-rounded and enriching educational experience."</p>
+                                        <h5 class="card-title">Bob Smith</h5>
+                                        <p class="card-subtitle">Bangalore</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Testimonial Section -->
+
+    <div class="container-fluid bottom-text-section">
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="about-text">
+                        <h1>Welcome to our College </h1>
+                        <p>At our College, we believe in fostering an environment of excellence, innovation, and
+                            community.</p>
+                        <p>As a leading institution in education, we are committed to shaping the future of our students
+                            by providing a holistic learning experience.</p>
+
+                        <p>Our dedicated faculty, state-of-the-art facilities, and vibrant campus life create an
+                            atmosphere where students can thrive academically and personally. </p>
+
+                        <p>We take pride in our diverse community and the unique perspectives each student brings to our
+                            campus.</p>
+
+                        <p>Our mission is to empower individuals to reach their full potential, equipping them with the
+                            knowledge and skills needed to make a positive impact in their chosen fields and in the
+                            world.</p>
+
+                        <p>Whether you're a prospective student, a current student, or an alum, we invite you to be part
+                            of our journey in shaping the future.</p>
+
+                        <p>Explore and discover a place where passion meets education, and dreams become reality. Join
+                            us on the path of knowledge, growth, and success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="https://www.instagram.com/national__clg" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/National_clg?s=20" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

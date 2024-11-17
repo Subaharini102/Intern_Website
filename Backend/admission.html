@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Admission Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: beige;
+    }
+
+    .admission-page {
+      background-color: beige;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .image-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 50px;
+
+    }
+
+    .streams-heading {
+      color: black;
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    .admission-heading {
+      color: black;
+      text-align: center;
+    }
+
+    .courses-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .course-box {
+      width: calc(25% - 20px);
+      margin: 10px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(18, 18, 19, 0.1);
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .course-box:hover {
+      box-shadow: 0 0 15px rgba(10, 10, 11, 0.5);
+    }
+
+    .course-content {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .dept-name {
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 991px) {
+      .course-box {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .course-box {
+        width: calc(100% - 20px);
+      }
+    }
+
+    .eligibility-criteria {
+      color: black;
+      text-align: justify;
+      margin-bottom: 50px;
+    }
+
+    .overview {
+      color: white;
+      text-align: justify;
+    }
+
+    .container-fluid {
+      position: relative;
+    }
+
+
+
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 40px;
+    }
+
+    .apply-now-btn {
+      background-color: green;
+      /* Change button color to green */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* Unique animation for button when clicked */
+    .apply-now-btn:active {
+      transform: translateY(2px);
+    }
+
+    .buttons {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 125px;
+      justify-content: center;
+    }
+
+    .scroll-btn {
+      padding: 10px 20px;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="admission-page">
+    <div class="container-fluid">
+      <h1 class="admission-heading">Admissions</h1>
+      <div class="image-container">
+        <img src="adm.jpg" alt="Logo" width="1500" height="500" class="d-inline-block align-text-top">
+        <div class="overlay-text">
+          <h2>Under Graduate Programs</h2>
+          <h3>Engineering</h3>
+        </div>
+        <div class="buttons">
+          <a href="#button1-content" class="scroll-btn">Streams</a>
+          <a href="#button2-content" class="scroll-btn">Eligibility Criteria</a>
+          <a href="#button3-content" class="scroll-btn">Fees</a>
+          <a href="#button4-content" class="scroll-btn">Admission Process</a>
+          <a href="#button5-content" class="scroll-btn">Key dates</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="button1-content" class="button-content">
+      <h4 class="streams-heading">Streams</h4>
+      <div class="courses-container">
+        <!-- Course Boxes -->
+        <div class="course-box">
+          <div class="course-content">
+            <div class="icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="dept-name">COMPUTER SCIENCE AND ENGINEERING</div>
+          </div>
+        </div>
+        <div class="course-box">
+          <div class="course-content">
+            <div class="icon"> <i class="fas fa-desktop"></i></div>
+            <div class="dept-name">INFORMATION TECHNOLOGY</div>
+          </div>
+        </div>
+        <div class="course-box">
+          <div class="course-content">
+            <div class="icon"><i class="fas fa-satellite-dish"></i></div>
+            <div class="dept-name">ELECTRICAL AND COMMUNICATION ENGINEERING</div>
+          </div>
+        </div>
+        <div class="course-box">
+          <div class="course-content">
+            <div class="icon"><i class="fas fa-plug"></i></div>
+            <div class="dept-name">ELECTRICAL AND ELECTRONICS ENGINEERING</div>
+          </div>
+        </div>
+        <div class="course-box">
+          <div class="course-content">
+            <div class="icon"> <i class="fas fa-cogs"></i></div>
+            <div class="dept-name">MECHANICAL ENGINEERING</div>
+          </div>
+        </div>
+        <div class="course-box">
+          <div class="course-content">
+            <div class="icon"><i class="fas fa-robot"></i></div>
+            <div class="dept-name">MECHATRONICS</div>
+          </div>
+        </div>
+        <div class="course-box">
+          <div class="course-content">
+            <div class="icon"><i class="fas fa-hard-hat"></i></div>
+            <div class="dept-name">CIVIL ENGINEERING</div>
+          </div>
+        </div>
+        <div class="course-box">
+          <div class="course-content">
+            <div class="icon"><i class="fas fa-chart-line"></i></div>
+            <div class="dept-name">COMPUTER SCIENCE AND BUSINESS SYSTEMS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="button2-content" class="button-content">
+      <div class="eligibility-criteria">
+        <h5>Eligibility Criteria</h5>
+
+        <ul>
+
+          <li> Completion of Higher Secondary Certificate (HSC) or its equivalent examination with Mathematics, Physics,
+            and Chemistry as compulsory subjects..</li>
+          <li>Candidates must clear the entrance examination conducted by the university/board for the respective
+            courses.</li>
+          <li>Candidates usually need to appear for and qualify in entrance examinations like the Tamil Nadu Engineering
+            Admissions (TNEA) or national-level exams such as JEE Main or other state-level engineering entrance exams.
+          </li>
+          <li>Specific courses may have additional eligibility criteria or prerequisites, communicated during the
+            admission process.</li>
+          <li>Applicants from international education boards need to provide equivalent qualification certificates as
+            per university guidelines.</li>
+          <li>Reserved categories may have different eligibility requirements, as per government regulations.</li>
+          <li> The candidate must have secured a minimum aggregate mark in these subjects(Mathematics, Physics, and
+            Chemistry), often around 50% to 60%, depending on the college and category (general, SC/ST, etc.).</li>
+
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <div id="button3-content" class="button-content">
+
+    <h3 style="color:black">UNDERGRADUATE FEE STRUCTURE 2024</h3>
+    <p>You will find below the fees for 2024. The university also offers scholarships and financial aid for deserving
+      and meritorious students.<br />
+      <br /><br />
+
+    <h4>One-time fee payment</h4>
+
+    <p>Application Fee:INR 500</p>
+
+    <br /><br />
+
+    <h4>Annual Tuition Fees and Living Expenses for First Year batch of 2024</h4>
+
+    <div class="table-responsive">
+      <table class="table-format" width="100%" style="BORDER-COLLAPSE: collapse;" border="1" bordercolor="#000000"
+        cellpadding="5">
+        <tbody>
+          <tr bgcolor="#ADD8E6">
+            <td width="40%" align="left">Program</td>
+            <td width="20%" align="center">Tuition Fee (INR)</td>
+            <td width="20%" align="center">Living Charges (INR)</td>
+            <td width="20%" align="center">Total (INR)</td>
+          </tr>
+
+          <tr>
+            <td align="left">B.E Computer Science and Engineering</td>
+            <td align="center">5,00,000</td>
+            <td align="center">2,00,000</td>
+            <td align="center">7,00,000</td>
+          </tr>
+
+          <tr>
+            <td align="left">B.Tech Information Technology</td>
+            <td align="center">3,50,000</td>
+            <td align="center">2,00,000</td>
+            <td align="center">5,50,000</td>
+          </tr>
+
+          <tr>
+            <td align="left">B.E Electronics and Communication Engineering</td>
+            <td align="center">3,50,000</td>
+            <td align="center">2,00,000</td>
+            <td align="center">5,50,000</td>
+          </tr>
+
+          <tr>
+            <td align="left">B.E Civil Engineering</td>
+            <td align="center">3,50,000</td>
+            <td align="center">2,00,000</td>
+            <td align="center">5,50,000</td>
+          </tr>
+          <tr>
+            <td align="left">B.E Electrical and Electronics Engineering</td>
+            <td align="center">3,50,000</td>
+            <td align="center">2,00,000</td>
+            <td align="center">5,50,000</td>
+          </tr>
+          <tr>
+            <td align="left">B.E Mechanical Engineering</td>
+            <td align="center">5,00,000</td>
+            <td align="center">2,00,000</td>
+            <td align="center">7,00,000</td>
+          </tr>
+          <tr>
+            <td align="left">B.E Mechatronics</td>
+            <td align="center">5,00,000</td>
+            <td align="center">2,00,000</td>
+            <td align="center">7,00,000</td>
+          </tr>
+
+          <tr>
+            <td align="left">B.Tech Computer Science and Business Systems</td>
+            <td align="center">5,00,000</td>
+            <td align="center">2,00,000</td>
+            <td align="center">7,00,000</td>
+          </tr>
+
+
+
+
+
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>1: Tuition Fee and living charges will be revised annually by upto 8%</strong></p>
+    <p><strong>2: The living charges is inclusive of Hostel fee , mess charges , laundry charges and covers access to
+        24*7 primary medical services. The hostel fee considered is for twin sharing non-AC rooms. Any other type of
+        accommodation, including AC or single rooms will be charged additionally.</strong> </p>
+
+  </div>
+
+
+  <div id="button4-content" class="button-content">
+    <h4>Admission Process</h4>
+    <p>Our admission process is designed to be straightforward and accessible to all aspiring students. Follow the steps
+      below to secure your place:</p>
+    <ol>
+      <li>Fill out the online application form by clicking the <button class="apply-now-btn"
+          onclick="openApplicationForm()">APPLY NOW</button> button below.</li>
+      <li>Submit the required documents, including academic transcripts and standardized test scores.</li>
+      <li>Appear for the entrance examination conducted by the university/board for the respective courses.</li>
+      <li>Attend the counseling session, where you'll have the opportunity to discuss your course preferences and
+        clarify any queries.</li>
+      <li>Upon successful completion of the above steps, you will receive an admission offer.</li>
+      <li>Pay the admission fees to confirm your enrollment.</li>
+    </ol>
+
+  </div>
+  <script>
+    function openApplicationForm() {
+      window.open("form/admission_form.html","_blank");
+    }
+  </script>
+
+  <div id="button5-content" class="button-content">
+    <h4>Key Dates</h4>
+    <p>Stay tuned for the important dates related to the admission process. The schedule will be updated periodically,
+      ensuring you have the latest information on application deadlines, entrance exams, counseling sessions, and more.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Mode</th>
+
+          <th>Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2024-01-15</td>
+          <td>Application Deadline</td>
+          <td>Online</td>
+          <td>Ensure to submit your application on time.</td>
+        </tr>
+        <tr>
+          <td>2024-02-01</td>
+          <td>Entrance Exam</td>
+          <td>Offline</td>
+          <td>Prepare well for the entrance exam.</td>
+        </tr>
+        <tr>
+          <td>2024-02-15</td>
+          <td>Counseling Session</td>
+          <td>Offline</td>
+          <td>Bring all required documents for the counseling session.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add more course boxes here -->
+  </div>
+  </div>
+
+</body>
+
+
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+  const courseBoxes = document.querySelectorAll('.course-box');
+
+  courseBoxes.forEach(box => {
+    box.addEventListener('touchstart', () => {
+      box.classList.add('slide-red');
+    }
+    );
+
+    // Remove the red color when touch ends
+    box.addEventListener('touchend', () => {
+      box.classList.remove('slide-red');
+    }
+    );
+  }
+  );
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwwGe1pVpXuiLUo2fKDPkfoTX8o-jtyrKqKvM-bQQvP5EYWcZjT3nC40S0o-fQ7XEA7/exec'
+
+  const form = document.forms['contact-form']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => alert("Thank you! your form is submitted successfully."))
+      .then(() => { window.location.reload(); })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+</body>
+
+</html>

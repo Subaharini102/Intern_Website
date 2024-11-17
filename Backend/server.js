@@ -25,7 +25,7 @@ mongoose.connect(mongoURI, {
   console.log('Error connecting to MongoDB:', err);
 });
 
-// Define User schema
+// Define User schema (for login/signup)
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
@@ -36,6 +36,22 @@ const userSchema = new mongoose.Schema({
 
 // Create User model
 const User = mongoose.model('UserDetails', userSchema);
+
+// Define Admission schema (for the admission form)
+const admissionSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  mobileNumber: { type: String, required: true },
+  email: { type: String, required: true },
+  tenthPercentile: { type: Number, required: true },
+  twelfthPercentile: { type: Number, required: true },
+  community: { type: String, required: true },
+  dob: { type: Date, required: true },
+  address: { type: String, required: true },
+}, { collection: 'AdmissionDetails' });  // Specify the collection name
+
+// Create Admission model
+const Admission = mongoose.model('AdmissionDetails', admissionSchema);
+
 
 // Signup Route
 app.post('/signup', async (req, res) => {
@@ -98,6 +114,36 @@ app.post('/login', async (req, res) => {
 
   // If everything is correct, send a success response
   res.status(200).json({ message: 'Login successful!' });
+});
+
+// Admission Form Route
+app.post('/admission', async (req, res) => {
+  const { name, mobileNumber, email, tenthPercentile, twelfthPercentile, community, dob, address} = req.body;
+
+  // Check if all fields are provided
+  if (!name || !mobileNumber || !email || !tenthPercentile || !twelfthPercentile || !community || !dob || !address ) {
+    return res.status(400).json({ message: 'All fields are required.' });
+  }
+
+  // Store the admission details in the database
+  const newAdmission = new Admission({
+    name,
+    mobileNumber,
+    email,
+    tenthPercentile,
+    twelfthPercentile,
+    community,
+    dob,
+    address
+  });
+
+  try {
+    await newAdmission.save();
+    res.status(200).json({ message: 'Admission details stored successfully!' });
+  } catch (error) {
+    console.error('Error saving admission details:', error);
+    res.status(500).json({ message: 'Error saving admission details to the database.' });
+  }
 });
 
 // Start the server
